@@ -4,14 +4,18 @@ import path from "path";
 const app = express();
 const port = 3000;
 
+app.use(express.static("src/assets"));
+
 app.set("view engine", "ejs");
 
 app.set("views", path.join(__dirname, "views"));
 
-app.get("/", (req, res) => {
-  const nama = "John Doe";
+app.get("/", (req: Request, res: Response) => {
+  res.render("index");
+});
 
-  res.render("index", { nama: nama });
+app.get("/about", (req: Request, res: Response) => {
+  res.render("about");
 });
 
 app.listen(port, () => {
