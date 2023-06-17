@@ -1,10 +1,17 @@
 import express, { Request, Response } from "express";
+import path from "path";
 
 const app = express();
 const port = 3000;
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, Express with TypeScript!");
+app.set("view engine", "ejs");
+
+app.set("views", path.join(__dirname, "views"));
+
+app.get("/", (req, res) => {
+  const nama = "John Doe";
+
+  res.render("index", { nama: nama });
 });
 
 app.listen(port, () => {
