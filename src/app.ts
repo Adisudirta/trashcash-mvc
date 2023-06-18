@@ -1,5 +1,6 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import path from "path";
+import router from "./router";
 
 const app = express();
 const port = 3000;
@@ -10,13 +11,7 @@ app.set("view engine", "ejs");
 
 app.set("views", path.join(__dirname, "views"));
 
-app.get("/", (req: Request, res: Response) => {
-  res.render("index");
-});
-
-app.get("/about", (req: Request, res: Response) => {
-  res.render("about");
-});
+app.use(router);
 
 app.listen(port, () => {
   console.log(`🌿 Trash Cash is running at: http://localhost:${port}/`);
