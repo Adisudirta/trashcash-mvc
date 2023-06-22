@@ -4,6 +4,29 @@
     <%- include('../head') %>
   </head>
   <body>
-    <h1>Wellcome to our dashboard</h1>
+    <div class="max-w-xl mx-auto p-6">
+      <h1 class="text-2xl font-bold mb-4">Image Uploader</h1>
+      <div class="mb-4">
+        <input type="file" id="uploadInput" class="hidden" accept="image/*" />
+        <label
+          for="uploadInput"
+          class="w-full flex items-center justify-center bg-gray-200 border border-gray-400 rounded-md py-2 px-4 cursor-pointer hover:bg-gray-300"
+        >
+          <span id="uploaderPlaceholder" class="text-gray-700"
+            >Choose an image</span
+          >
+
+          <div id="previewContainer" class="hidden">
+            <img
+              alt="Image Preview"
+              class="h-[32rem] w w-full object-cover object-center"
+              id="previewImage"
+            />
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <%- include('../../utils/imageUploader') %>
   </body>
 </html>

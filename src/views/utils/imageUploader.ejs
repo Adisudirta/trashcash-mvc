@@ -1,0 +1,21 @@
+<script>
+  const uploadInput = document.getElementById("uploadInput");
+  const previewContainer = document.getElementById("previewContainer");
+  const previewImage = document.getElementById("previewImage");
+  const placeholder = document.getElementById("uploaderPlaceholder");
+
+  uploadInput.addEventListener("change", function () {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.addEventListener("load", function () {
+        previewImage.src = reader.result;
+        previewContainer.classList.remove("hidden");
+        placeholder.classList.add("hidden");
+      });
+
+      reader.readAsDataURL(file);
+    }
+  });
+</script>

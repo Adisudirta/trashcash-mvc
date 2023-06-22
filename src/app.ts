@@ -11,6 +11,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.static("src/assets"));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
