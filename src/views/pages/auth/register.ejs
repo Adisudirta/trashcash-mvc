@@ -23,14 +23,23 @@
           >
             Register
           </h3>
-          <form class="bg-white">
+
+          <%if(messages.error){%>
+          <div
+            class="font-regular mb-3 relative block w-full rounded-lg bg-pink-500 p-4 text-base leading-5 text-white opacity-100"
+          >
+            <%=messages.error%>
+          </div>
+          <%}%>
+
+          <form class="bg-white" action="/register" method="post">
             <div class="mb-4">
               <label class="block mb-2 text-sm font-bold" for="username">
                 Username
               </label>
               <input
                 type="text"
-                id="username"
+                name="username"
                 class="w-full p-3 text-md border rounded shadow focus:outline-none focus:shadow-outline"
                 placeholder="Username"
               />
@@ -41,7 +50,7 @@
               </label>
               <input
                 type="email"
-                id="email"
+                name="email"
                 class="w-full p-3 text-md border rounded shadow focus:outline-none focus:shadow-outline"
                 placeholder="Username"
               />
@@ -52,7 +61,7 @@
               </label>
               <input
                 type="password"
-                id="password"
+                name="password"
                 class="w-full p-3 text-md border rounded shadow focus:outline-none focus:shadow-outline"
                 placeholder="***********"
               />
@@ -60,7 +69,7 @@
             <div class="mb-4">
               <button
                 class="w-full p-3 font-bold text-white bg-green-500 rounded-full focus:outline-none"
-                type="button"
+                type="submit"
               >
                 Sign Up
               </button>
