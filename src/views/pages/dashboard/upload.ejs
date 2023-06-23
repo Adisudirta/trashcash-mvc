@@ -13,6 +13,7 @@
 
       <form
         action="/dashboard/upload"
+        enctype="multipart/form-data"
         method="post"
         class="flex justify-center gap-20 w-full pb-10"
       >
@@ -21,6 +22,7 @@
             required
             type="file"
             id="uploadInput"
+            name="image"
             class="hidden"
             accept="image/*"
           />

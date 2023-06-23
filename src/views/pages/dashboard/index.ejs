@@ -51,7 +51,8 @@
       </p>
     </section>
 
-    <section class="container px-9 py-5 mx-auto">
+    <section class="container flex gap-5 flex-wrap px-9 py-5 mx-auto">
+      <% trashes.map(trash => { %>
       <div
         class="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
       >
@@ -59,17 +60,17 @@
           <div
             class="bg-green-400 inline-block text-white py-[2px] px-[10px] rounded-lg mb-3"
           >
-            Plastic
+            <%=trash.category%>
           </div>
           <h5
             class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
           >
-            Sampah Plastik Siap Daur Ulang
+            <%=trash.title%>
           </h5>
           <p
             class="block font-sans text-base font-light leading-relaxed text-inherit antialiased"
           >
-            Mulai dari IDR 50.000
+            Mulai dari IDR <%=trash.price%>
           </p>
         </div>
         <div class="p-6 pt-0 flex gap-2">
@@ -90,6 +91,7 @@
           </button>
         </div>
       </div>
+      <%})%>
     </section>
 
     <%- include('../../components/dashboard-footer') %>

@@ -4,7 +4,15 @@
     <%- include('../head') %>
   </head>
   <body>
-    <%- include('../../components/header') %>
+    <%- include('../../components/header') %> <%if(messages.error){%>
+    <div class="container px-9 mx-auto">
+      <div
+        class="font-regular my-5 relative block w-full rounded-lg bg-pink-500 p-4 text-base leading-5 text-white opacity-100"
+      >
+        <%=messages.error%>
+      </div>
+    </div>
+    <%}%>
 
     <section class="container mx-auto p-9">
       <div
@@ -32,18 +40,21 @@
         Trash around you? ofcourse many cash around you 💰
       </p>
 
-      <div
+      <form
+        action="/"
+        method="post"
         class="relative flex h-10 w-full min-w-[200px] max-w-[24rem] mx-auto"
       >
         <input
           type="text"
+          name="search"
           class="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 pr-20 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-green-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
           placeholder=" "
           required
         />
         <button
           class="!absolute right-1 top-1 z-10 select-none rounded bg-green-500 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none peer-placeholder-shown:pointer-events-none peer-placeholder-shown:bg-blue-gray-500 peer-placeholder-shown:opacity-50 peer-placeholder-shown:shadow-none"
-          type="button"
+          type="submit"
           data-ripple-light="true"
         >
           Search
@@ -53,128 +64,48 @@
         >
           Search Trash
         </label>
-      </div>
+      </form>
 
-      <div class="flex justify-center gap-10 mt-20">
+      <div class="flex flex-wrap justify-center gap-x-10 gap-y-20 mt-20">
+        <% trashes.map((trash) => { %>
         <div
           class="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
         >
           <div
-            class="relative mx-4 -mt-6 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40"
+            class="relative h-[200px] mx-4 -mt-6 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40"
           >
-            <img
-              src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
-              alt="img-blur-shadow"
-              layout="fill"
-            />
+            <img src="<%=trash.img%>" alt="img-blur-shadow" layout="fill" />
           </div>
           <div class="p-6">
             <div
               class="bg-green-400 inline-block text-white py-[2px] px-[10px] rounded-lg mb-3"
             >
-              Plastic
+              <%=trash.category%>
             </div>
             <h5
               class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
             >
-              Sampah Plastik Siap Daur Ulang
+              <%=trash.title%>
             </h5>
             <p
               class="block font-sans text-base font-light leading-relaxed text-inherit antialiased"
             >
-              Mulai dari Rp50.0000
+              Mulai dari IDR <%=trash.price%>
             </p>
           </div>
           <div class="p-6 pt-0">
-            <button
-              class="select-none rounded-lg bg-green-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-400/20 transition-all hover:shadow-lg hover:shadow-green-400/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              type="button"
-              data-ripple-light="true"
-            >
-              Read More
-            </button>
+            <a href="/trashes/<%=trash.id%>">
+              <button
+                class="select-none rounded-lg bg-green-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-400/20 transition-all hover:shadow-lg hover:shadow-green-400/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button"
+                data-ripple-light="true"
+              >
+                Read More
+              </button>
+            </a>
           </div>
         </div>
-
-        <div
-          class="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
-        >
-          <div
-            class="relative mx-4 -mt-6 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
-              alt="img-blur-shadow"
-              layout="fill"
-            />
-          </div>
-          <div class="p-6">
-            <div
-              class="bg-green-400 inline-block text-white py-[2px] px-[10px] rounded-lg mb-3"
-            >
-              Plastic
-            </div>
-            <h5
-              class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
-            >
-              Sampah Plastik Siap Daur Ulang
-            </h5>
-            <p
-              class="block font-sans text-base font-light leading-relaxed text-inherit antialiased"
-            >
-              Mulai dari Rp50.0000
-            </p>
-          </div>
-          <div class="p-6 pt-0">
-            <button
-              class="select-none rounded-lg bg-green-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-400/20 transition-all hover:shadow-lg hover:shadow-green-400/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              type="button"
-              data-ripple-light="true"
-            >
-              Read More
-            </button>
-          </div>
-        </div>
-
-        <div
-          class="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
-        >
-          <div
-            class="relative mx-4 -mt-6 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
-              alt="img-blur-shadow"
-              layout="fill"
-            />
-          </div>
-          <div class="p-6">
-            <div
-              class="bg-green-400 inline-block text-white py-[2px] px-[10px] rounded-lg mb-3"
-            >
-              Plastic
-            </div>
-            <h5
-              class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
-            >
-              Sampah Plastik Siap Daur Ulang
-            </h5>
-            <p
-              class="block font-sans text-base font-light leading-relaxed text-inherit antialiased"
-            >
-              Mulai dari Rp50.0000
-            </p>
-          </div>
-          <div class="p-6 pt-0">
-            <button
-              class="select-none rounded-lg bg-green-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-400/20 transition-all hover:shadow-lg hover:shadow-green-400/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              type="button"
-              data-ripple-light="true"
-            >
-              Read More
-            </button>
-          </div>
-        </div>
+        <% }) %>
       </div>
     </section>
 
