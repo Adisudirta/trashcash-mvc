@@ -17,7 +17,13 @@
         class="flex justify-center gap-20 w-full pb-10"
       >
         <div class="w-[450px]">
-          <input type="file" id="uploadInput" class="hidden" accept="image/*" />
+          <input
+            required
+            type="file"
+            id="uploadInput"
+            class="hidden"
+            accept="image/*"
+          />
           <label
             for="uploadInput"
             class="w-full h-[500px] overflow-hidden flex items-center justify-center bg-green-200 border-dashed border-4 border-green-400 rounded-xl cursor-pointer hover:bg-green-200/50"
@@ -47,6 +53,7 @@
 
             <div class="relative h-10 w-full min-w-[200px] mb-5">
               <input
+                required
                 name="title"
                 type="text"
                 class="peer h-full w-full rounded-[7px] border border-blue-gray-700 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-green-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
@@ -71,6 +78,7 @@
             <div class="relative h-10 w-full min-w-[200px] mb-5">
               <input
                 name="price"
+                required
                 type="number"
                 class="peer h-full w-full rounded-[7px] border border-blue-gray-700 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-green-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 placeholder=" "
@@ -95,6 +103,7 @@
               <input
                 name="qty"
                 type="number"
+                required
                 class="peer h-full w-full rounded-[7px] border border-blue-gray-700 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-green-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 placeholder=" "
               />
@@ -116,6 +125,7 @@
               <div class="relative h-10 w-full">
                 <select
                   name="category"
+                  required
                   class="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 empty:!bg-red-500 focus:border-2 focus:border-green-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 >
                   <option value="Plastic">Plastic</option>
@@ -137,12 +147,13 @@
               for="description"
               class="block text-[18px] text-gray-600 font-bold mb-[10px]"
             >
-              Qty:
+              Description:
             </label>
 
             <div class="relative w-full min-w-[200px]">
               <textarea
                 name="description"
+                required
                 class="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-green-500 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
                 placeholder=" "
               ></textarea>
