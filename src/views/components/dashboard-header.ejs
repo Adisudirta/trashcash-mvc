@@ -3,35 +3,40 @@
 >
   <div class="container flex items-center mx-auto text-gray-900">
     <a
-      href="/"
+      href="/dashboard"
       class="flex gap-2 items-center mr-4 cursor-pointer py-1.5 font-sans text-base font-medium leading-relaxed text-inherit antialiased"
     >
       <img width="50" src="/trash-cash-logo.png" alt="Trash Cash Logo" />
-      <h1 class="text-[20px]">Trash Cash</h1>
+      <h1 class="text-[20px]">Dashboard</h1>
     </a>
 
     <ul class="ml-auto mr-8 hidden items-center gap-6 lg:flex">
       <li
         class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased"
       >
-        <a class="flex items-center" href="/"> Home </a>
+        <a class="flex items-center" href="/dashboard"> My Trash </a>
       </li>
       <li
         class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased"
       >
-        <a class="flex items-center" href="/about"> About </a>
+        <a class="flex items-center" href="/dashboard/upload"> Upload </a>
+      </li>
+      <li
+        class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased"
+      >
+        <a class="flex items-center" href="/"> Back to Home Page </a>
       </li>
     </ul>
 
-    <a href="/login">
+    <form action="/logout" method="post">
       <button
-        class="middle none center hidden rounded-lg bg-gradient-to-tr from-green-600 to-green-400 py-2 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-400/25 transition-all hover:shadow-lg hover:shadow-green-400/50 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
-        type="button"
+        class="middle none center hidden rounded-lg bg-gradient-to-tr from-red-600 to-red-400 py-2 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-red-400/25 transition-all hover:shadow-lg hover:shadow-red-400/50 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
+        type="submit"
         data-ripple-light="true"
       >
-        <span>Sell your trash!</span>
+        <span>Logout</span>
       </button>
-    </a>
+    </form>
 
     <button
       class="middle none relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] rounded-lg text-center font-sans text-xs font-medium uppercase text-blue-gray-500 transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden"

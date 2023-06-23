@@ -4,29 +4,94 @@
     <%- include('../head') %>
   </head>
   <body>
-    <div class="max-w-xl mx-auto p-6">
-      <h1 class="text-2xl font-bold mb-4">Image Uploader</h1>
-      <div class="mb-4">
-        <input type="file" id="uploadInput" class="hidden" accept="image/*" />
-        <label
-          for="uploadInput"
-          class="w-full flex items-center justify-center bg-gray-200 border border-gray-400 rounded-md py-2 px-4 cursor-pointer hover:bg-gray-300"
-        >
-          <span id="uploaderPlaceholder" class="text-gray-700"
-            >Choose an image</span
+    <%- include('../../components/dashboard-header') %>
+
+    <section class="container px-9 py-5 mx-auto">
+      <div class="w-max text-left">
+        <nav aria-label="breadcrumb">
+          <ol
+            class="flex w-full flex-wrap items-center rounded-md bg-blue-gray-50 bg-opacity-60 py-2"
           >
+            <li
+              class="flex cursor-pointer items-center font-sans text-sm font-normal leading-normal text-blue-gray-900 antialiased transition-colors duration-300 hover:text-pink-500"
+            >
+              <a class="opacity-60" href="/">
+                <span>Home Page</span>
+              </a>
+              <span
+                class="pointer-events-none mx-2 select-none font-sans text-sm font-normal leading-normal text-blue-gray-500 antialiased"
+              >
+                /
+              </span>
+            </li>
 
-          <div id="previewContainer" class="hidden">
-            <img
-              alt="Image Preview"
-              class="h-[32rem] w w-full object-cover object-center"
-              id="previewImage"
-            />
-          </div>
-        </label>
+            <li
+              class="flex cursor-pointer items-center font-sans text-sm font-normal leading-normal text-blue-gray-900 antialiased transition-colors duration-300 hover:text-pink-500"
+            >
+              <a
+                class="font-medium text-blue-gray-900 transition-colors hover:text-pink-500"
+                href="/dashboard"
+              >
+                Dashboard
+              </a>
+            </li>
+          </ol>
+        </nav>
       </div>
-    </div>
+    </section>
 
-    <%- include('../../utils/imageUploader') %>
+    <section class="container px-9 py-5 mx-auto">
+      <h1 class="text-[30px] font-bold mb-5">
+        Holla, Wellcome to <br />
+        <span class="text-green-600 text-[35px]">Trash Cash Dashboard</span> 🌿
+      </h1>
+
+      <p class="text-blue-gray-500">
+        Here is trash you're selling right now! 💪
+      </p>
+    </section>
+
+    <section class="container px-9 py-5 mx-auto">
+      <div
+        class="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
+      >
+        <div class="p-6">
+          <div
+            class="bg-green-400 inline-block text-white py-[2px] px-[10px] rounded-lg mb-3"
+          >
+            Plastic
+          </div>
+          <h5
+            class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
+          >
+            Sampah Plastik Siap Daur Ulang
+          </h5>
+          <p
+            class="block font-sans text-base font-light leading-relaxed text-inherit antialiased"
+          >
+            Mulai dari IDR 50.000
+          </p>
+        </div>
+        <div class="p-6 pt-0 flex gap-2">
+          <button
+            class="select-none rounded-lg bg-cyan-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-cyan-500/20 transition-all hover:shadow-lg hover:shadow-cyan-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+            data-ripple-light="true"
+          >
+            Edit
+          </button>
+
+          <button
+            class="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+            data-ripple-light="true"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <%- include('../../components/dashboard-footer') %>
   </body>
 </html>

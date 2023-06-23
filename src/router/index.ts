@@ -1,6 +1,7 @@
 import { Request, Response, Router } from "express";
 import auth from "../middleware/auth";
 import authRouter from "./auth.router";
+import dashboardRouter from "./dashboard.router";
 
 const router = Router();
 
@@ -14,10 +15,8 @@ router.get("/about", (req: Request, res: Response) => {
   res.render("pages/client/about");
 });
 
-router.get("/dashboard", (req: Request, res: Response) => {
-  res.render("pages/dashboard/index");
-});
-
 router.use(auth);
+
+router.use(dashboardRouter);
 
 export default router;
