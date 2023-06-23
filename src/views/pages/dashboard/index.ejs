@@ -40,6 +40,16 @@
       </div>
     </section>
 
+    <%if(messages.error){%>
+    <div class="container px-9 mx-auto">
+      <div
+        class="font-regular my-5 relative block w-full rounded-lg bg-pink-500 p-4 text-base leading-5 text-white opacity-100"
+      >
+        <%=messages.error%>
+      </div>
+    </div>
+    <%}%>
+
     <section class="container px-9 py-5 mx-auto">
       <h1 class="text-[30px] font-bold mb-5">
         Holla, Wellcome to <br />
@@ -74,21 +84,25 @@
           </p>
         </div>
         <div class="p-6 pt-0 flex gap-2">
-          <button
-            class="select-none rounded-lg bg-cyan-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-cyan-500/20 transition-all hover:shadow-lg hover:shadow-cyan-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-            data-ripple-light="true"
-          >
-            Edit
-          </button>
+          <a href="/dashboard/<%=trash.id%>/edit">
+            <button
+              class="select-none rounded-lg bg-cyan-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-cyan-500/20 transition-all hover:shadow-lg hover:shadow-cyan-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              type="button"
+              data-ripple-light="true"
+            >
+              Edit
+            </button>
+          </a>
 
-          <button
-            class="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-            data-ripple-light="true"
-          >
-            Delete
-          </button>
+          <form action="/dashboard/<%=trash.id%>/delete" method="post">
+            <button
+              class="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              type="submit"
+              data-ripple-light="true"
+            >
+              Delete
+            </button>
+          </form>
         </div>
       </div>
       <%})%>

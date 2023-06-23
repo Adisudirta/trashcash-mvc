@@ -41,6 +41,23 @@ export default class TrashController {
     res.render("pages/dashboard/index", { trashes });
   }
 
+  static async editPage(req: Request, res: Response, next: NextFunction) {
+    try {
+      const result = await prisma.trash.findUnique({
+        where: {
+          id: Number(req.params.id),
+        },
+      });
+      if (result === null) {
+        return next();
+      }
+      res.render("pages/dashboard/edit", { trash: result });
+    } catch (error) {
+      req.flash("error", error.message);
+      res.redirect("/dashboard");
+    }
+  }
+
   static uploadPage(req: Request, res: Response) {
     res.render("pages/dashboard/upload");
   }
@@ -81,5 +98,33 @@ export default class TrashController {
       req.flash("error", "Terjadi kesalahan dalam mencari data");
       res.redirect("/");
     }
+  }
+
+  static async update(req: Request, res: Response) {
+    await prisma.trash.update({
+      where: {
+        id: Number(req.params.id),
+      },
+      data: {
+        title: req.body.title,
+        img: req.file.filename,
+        qty: parseInt(req.body.qty),
+        price: thousandSeparator(parseInt(req.body.price)),
+        category: req.body.category,
+        desc: req.body.description,
+      },
+    });
+
+    res.redirect("/dashboard");
+  }
+
+  static async delete(req: Request, res: Response) {
+    await prisma.trash.delete({
+      where: {
+        id: Number(req.params.id),
+      },
+    });
+
+    res.redirect("/dashboard");
   }
 }

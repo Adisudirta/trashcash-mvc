@@ -6,6 +6,14 @@ const dashboardRouter = Router();
 
 dashboardRouter.get("/dashboard", TrashController.dashboardPage);
 dashboardRouter.get("/dashboard/upload", TrashController.uploadPage);
+dashboardRouter.get("/dashboard/:id/edit", TrashController.editPage);
+dashboardRouter.post("/dashboard/:id/delete", TrashController.delete);
+
+dashboardRouter.post(
+  "/dashboard/:id/edit",
+  upload.single("image"),
+  TrashController.update
+);
 
 dashboardRouter.post(
   "/dashboard/upload",
