@@ -37,5 +37,5 @@ app.use(passport.session());
 app.use(router);
 
 app.listen(port, () => {
-  console.log(`🌿 Trash Cash is running at: http://localhost:${port}/`);
+  console.log(`🌿 Trash Cash is running at port ${port}`);
 });
