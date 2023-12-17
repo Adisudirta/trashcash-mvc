@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/ae9504a4-d090-4a72-98de-e5c926056dbb/resourceGroups/rg-azurevm-nodejs/providers/Microsoft.Web/sites/trashcash",
+  "appService.deploySubpath": "."
+}
