@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon",
-    "seed": "ts-node ./prisma/seeder.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "seed": "ts-node ./prisma/seeder.ts"
   },
   "keywords": [],
   "author": "",
