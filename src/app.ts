@@ -6,9 +6,10 @@ import passport from "./lib/passport";
 import flash from "express-flash";
 import morgan from "morgan";
 import cors from "cors";
+require("dotenv").config();
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT;
 
 app.use(express.static("src/assets"));
 app.use(express.static(path.join(__dirname, "../public/uploads")));
