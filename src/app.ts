@@ -14,8 +14,6 @@ const port = process.env.PORT;
 app.use(express.static("src/assets"));
 app.use(express.static(path.join(__dirname, "../public/uploads")));
 
-console.log(__dirname);
-
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
