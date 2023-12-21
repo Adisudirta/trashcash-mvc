@@ -9,7 +9,7 @@ import cors from "cors";
 require("dotenv").config();
 
 const app = express();
-const port = process.env.WEBSITES_PORT || 80;
+const port = 3000;
 
 app.use(express.static("src/assets"));
 app.use(express.static(path.join(__dirname, "../public/uploads")));

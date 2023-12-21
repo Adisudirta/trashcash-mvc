@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:../db/dev.db"
+  provider          = "sqlserver"
+  url               = "sqlserver://trashcash-db-server.database.windows.net:1433;database=trashcash-db;user=trashcash;password=password123@;encrypt=true"
+  shadowDatabaseUrl = "sqlserver://trashcash-db-server.database.windows.net:1433;database=trashcash-db-shadow;user=trashcash;password=password123@;encrypt=true"
 }
 
 model User {

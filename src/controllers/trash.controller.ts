@@ -1,6 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 import { NextFunction, Request, Response } from "express";
 import thousandSeparator from "../lib/thousandSeparator";
+import { nanoid } from "nanoid";
+import { BlockBlobClient } from "@azure/storage-blob";
+import intoStream from "into-stream";
 
 const prisma = new PrismaClient();
 
@@ -63,10 +66,21 @@ export default class TrashController {
   }
 
   static async upload(req: Request, res: Response) {
+    const stream = intoStream(req.file.buffer);
+    const streamLength = req.file.buffer.length;
+    const blobName = `${nanoid()}-${req.file.originalname}`;
+    const blobService = new BlockBlobClient(
+      "DefaultEndpointsProtocol=https;AccountName=trashcashstorage;AccountKey=ShgprrHNAdpi74zHTl9dKdWUa/2lIoAaH4r6N1/fzr9lDTrPZvDv5jaXehoj33+fGWsuXKlLxslj+AStfALK8A==;EndpointSuffix=core.windows.net",
+      "trashcash-storage-container",
+      blobName
+    );
+
+    await blobService.uploadStream(stream, streamLength);
+
     await prisma.trash.create({
       data: {
         title: req.body.title,
-        img: req.file.filename,
+        img: `https://trashcashstorage.blob.core.windows.net/trashcash-storage-container/${blobName}`,
         qty: parseInt(req.body.qty),
         price: thousandSeparator(parseInt(req.body.price)),
         category: req.body.category,

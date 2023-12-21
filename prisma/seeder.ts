@@ -30,7 +30,7 @@ async function main() {
       category: "Battery",
       desc: "Used furniture in good condition.",
       price: "100",
-      img: "https://images.unsplash.com/photo-1608224873587-81ee37394b4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80",
+      img: "https://trashcashstorage.blob.core.windows.net/trashcash-storage-container/DS220100-1531-00-main-img_1.png",
       userId: 1,
     },
     {
@@ -39,7 +39,7 @@ async function main() {
       category: "Battery",
       desc: "Electronics items for recycling.",
       price: "50",
-      img: "https://images.unsplash.com/photo-1608224873587-81ee37394b4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80",
+      img: "https://trashcashstorage.blob.core.windows.net/trashcash-storage-container/DS220100-1531-00-main-img_1.png",
       userId: 2,
     },
   ];
